@@ -19,7 +19,7 @@ labUser = tk.Label(window, text="USER NAME",bg="#45aaf2", fg="#fff",font=("Arial
 inputName = tk.Entry(window, width=63, font=("Poppins", 18))
 inputName.grid(row=4, column=0,sticky="W", padx=160, pady=5)
 
-labPass = tk.Label(window, text="PASSWORD",bg="#45aaf2", fg="#fff",font=("Arial", 20, "bold")).grid(row=6, column=0,sticky="W", padx=160, pady=6)
+labPass = tk.Label(window, text="PASSWORD",bg="#45aaf2", fg="#fff",font=("Arial", 20, "bold")).grid(row=6, column=0,sticky="W", padx=160, pady=(45,0))
 
 inputPass = tk.Entry(window, width=63, font=("Poppins", 18), show="*")
 inputPass.grid(row=7, column=0,sticky="W", padx=160, pady=5)
@@ -40,6 +40,6 @@ def reg():
             messagebox.showerror("Info", "Register Failed")
 
 
-btnSubmitReg = tk.Button(window, text = "R e g i s t e r",width= 15, command = reg,bg="white", font=("Poppins", 15,"normal")).grid(row=13, column = 0,padx=10, pady=30)
+btnSubmitReg = tk.Button(window, text = "R e g i s t e r",width= 15, command = reg,bg="white", font=("Poppins", 15,"normal")).grid(row=13, column = 0,padx=10, pady=(70,0))
 
 window.mainloop()
