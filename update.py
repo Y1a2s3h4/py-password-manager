@@ -32,7 +32,7 @@ def update_credentials(name):
 
     passwordLabel = tk.Label(window, text="Enter Your Password: ",bg="#45aaf2", fg="#fff", font=("Poppins", 16, "normal")).grid(row=10, column=0,sticky="W", padx=10, pady=(10,0))
 
-    passwordInput = tk.Entry(window, width=30, font=("Poppins", 16))
+    passwordInput = tk.Entry(window,show="*", width=30, font=("Poppins", 16))
     passwordInput.grid(row=11, column=0,sticky="W", padx=10, pady=10)
 
 
@@ -44,8 +44,10 @@ def update_credentials(name):
         if password_reason!="" and username!="" and password!="":
             useName = collection.update_one({"username": name, "allData.password": findPassInput.get()}, {"$set": {"allData.$.password_reason": password_reason ,"allData.$.username": username ,"allData.$.password": password}})
             tk.messagebox.showinfo("Info", "Data Updated")
+            window.focus_set()
         else:
             tk.messagebox.showerror("Info", "Enter Valid Data")
+            window.focus_set()
         
 
     def show():

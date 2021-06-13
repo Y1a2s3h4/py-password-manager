@@ -27,7 +27,7 @@ def del_credentials(name):
 
     passwordLabel = tk.Label(window, text="Enter Your Password: ",bg="#45aaf2", fg="#fff", font=("Poppins", 16, "normal")).grid(row=7, column=0,sticky="W", padx=10, pady=(10,0))
 
-    passwordInput = tk.Entry(window, width=30, font=("Poppins", 16))
+    passwordInput = tk.Entry(window,show="*", width=30, font=("Poppins", 16))
     passwordInput.grid(row=8, column=0,sticky="W", padx=10, pady=10)
 
 
@@ -39,8 +39,10 @@ def del_credentials(name):
         if password_reason!="" and username!="" and password!="":
             useName = collection.update({"username": name}, {"$pull": {"allData": {"password_reason": password_reason ,"username": username ,"password": password}}})
             tk.messagebox.showinfo("Info", "Data Deleted")
+            window.focus_set()
         else:
             tk.messagebox.showerror("Info", "Enter Valid Data")
+            window.focus_set()
         
 
     def show():
