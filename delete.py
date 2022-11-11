@@ -30,6 +30,19 @@ def del_credentials(name):
     passwordInput = tk.Entry(window,show="*", width=30, font=("Poppins", 16))
     passwordInput.grid(row=8, column=0,sticky="W", padx=10, pady=10)
 
+    def deleteData():
+        password_reason = titleInput.get()
+        username = userInput.get()
+        password = passwordInput.get()
+
+        if password_reason!="" and username!="" and password!="":
+            useName = collection.update({"username": name}, {"$pull": {"allData": {"password_reason": password_reason ,"username": username ,"password": password}}})
+            tk.messagebox.showinfo("Info", "Data Deleted")
+            window.focus_set()
+        else:
+            tk.messagebox.showerror("Info", "Enter Valid Data")
+            window.focus_set()
+
     def show():
         top = tk.Toplevel()
         top.title("Data")
